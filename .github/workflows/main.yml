@@ -1,14 +1,15 @@
-name: Run Say Hello  # Название воркфлоу, это имя будет отображаться в интерфейсе GitHub Actions.
+name: Run Say Hello
 
-on:  # Определяет условия запуска воркфлоу.
-  push:  # Воркфлоу запускается при событии push в репозиторий.
-    branches:  # Условие для веток.
-      - main  # Воркфлоу запускается только при push в ветку main.
+on:
+  pull_request:
+    branches:
+      - main
 
-jobs:  # Определяет одну или несколько работ (jobs), которые нужно выполнить во время запуска воркфлоу.
-  say_hello:  # Название работы.
-    runs-on: ubuntu-latest  # Определяет операционную систему, на которой будет выполняться работа. Здесь указана последняя доступная версия Ubuntu.
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
 
-    steps:  # Шаги (steps), которые нужно выполнить в рамках работы.
-    - name: Run Say Hello  # Название шага.
-      run: make say-hello  # Команда, которая будет выполнена во время этого шага.
+    steps:
+      - name: Run Say Hello
+        run: make say-hello
+
