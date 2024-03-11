@@ -1,14 +1,15 @@
 name: Run Say Hello
 
 on:
-  push:
-    branches:
-      - main
+    pull_request:
+        branches:
+            - main
 
 jobs:
-  say-hello:
-    runs-on: ubuntu-latest
+    say_hello:
+        runs-on: ubuntu-latest
 
-    steps:
-    - name: Run Say Hello
-      run: make say-hello
+        steps:
+            - name: Run Say Hello
+              run: make say-hello
+
