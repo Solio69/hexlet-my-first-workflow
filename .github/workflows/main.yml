@@ -1,15 +1,17 @@
-name: Run Say Hello
-
-on:
-  pull_request:
-    branches:
-      - main
-
+name: say-hello
+# on – определяет события, которые запускают воркфлоу
+on: push
 jobs:
-  say_hello:
+  # build – произвольно выбранное имя задания
+  # их может быть больше одного
+  build:
+    # операционная система для работы воркфлоу
     runs-on: ubuntu-latest
-
-    steps:
-      - name: Run Say Hello
-        run: make say-hello
+    steps: # список шагов, которые надо выполнить
+      # экшен — выполняет какую-то задачу
+      # checkout — клонирует репозиторий
+      - uses: actions/checkout@v3
+      # run – произвольная bash-команда
+      # ls -la выведет содержимое текущего репозитория
+      - run: ls -la
 
